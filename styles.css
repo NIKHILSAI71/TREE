@@ -1,0 +1,203 @@
+body {
+    font-family: monospace;
+    margin: 10px;  /* Reduced from 20px */
+    position: relative;
+}
+
+.drop-area {
+    display: flex;  /* Changed back to flex */
+    border: 2px dashed #ccc;
+    padding: 20px;
+    margin-top: 5px;  /* Reduced from 10px */
+    margin-bottom: 5px;  /* Added margin-bottom */
+    border-radius: 4px;
+    text-align: center;
+    cursor: default;
+    justify-content: center;
+    align-items: center;
+    height: 637px;  /* Increased from 600px */
+    pointer-events: all;
+}
+
+.drop-area.dragover {
+    background-color: #f0f0f0;
+}
+
+.drop-area.hidden {
+    display: none;
+}
+
+.folder-tree-container {
+    white-space: pre-wrap;
+    border: 1px solid #ccc;
+    padding: 8px;  /* Reduced from 10px */
+    overflow: auto;
+    display: none;
+    max-height: 640px;  /* Increased from 600px to match drop-area */
+    border-radius: 4px;
+    margin-bottom: 0;  /* Removed margin */
+}
+
+/* Button styles */
+.copy-button, .choose-folder-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.choose-folder-button:hover {
+    background-color: #e0e0e0;
+}
+
+.choose-folder-button i {
+    margin-right: 10px;
+}
+
+.copy-button {
+    display: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+.copy-button:hover {
+    background-color: #e0e0e0;
+    transform: none;
+}
+
+.copy-button i {
+    margin: 0;
+    font-size: 16px;
+}
+
+.close-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.close-button:hover {
+    background-color: #e0e0e0;
+    transform: translateX(-50%) scale(1.1);
+}
+
+.close-button i {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Layout containers */
+.button-container {
+    display: none;  /* Hide the old container */
+}
+
+.fixed-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.copy-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+/* File input styling */
+.file-input-container {
+    display: inline-block;  /* Changed back to inline-block */
+    margin: 0 0 10px 0;  /* Added bottom margin of 10px */
+}
+
+#folder-upload {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: #333;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+    border: 0.2px solid #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+/* Attribution section */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;  /* Reduced from 10px */
+}
+
+.header-left {
+    flex: 1;
+}
+
+.attribution {
+    position: static;
+    font-size: 0.8em;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.attribution a {
+    color: #666;
+    text-decoration: none;
+}
+
+.attribution a:hover {
+    color: #333;
+}
+
+#counts {
+    margin: 2px 0;  /* Reduced from 5px */
+}
